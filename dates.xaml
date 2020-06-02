@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp1.dates"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="dates" Height="450" Background="WhiteSmoke" Width="800">
+    <Grid Background="DarkGray">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="Выберите начальную дату" Margin="5" Height="30" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <DatePicker Grid.Row="0" Grid.Column="1" Name="begindate" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300"  IsDropDownOpen="True" SelectedDateFormat="Short" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Выберите конечную дату" Margin="5" Height="30" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <DatePicker Grid.Row="1" Grid.Column="1" Name="enddate"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="300"  IsDropDownOpen="True" SelectedDateFormat="Short" />
+        <Button Grid.Row="2" Grid.Column="0" FontSize="17" Height="35" Width="200" Margin="25" Content="Назад" Click="Back_OnClick"/>
+        <Button Grid.Row="2" Grid.Column="1" Height="35" Width="200" FontSize="17" Margin="25" Content="Выбрать" Click="save_OnClick"/>
+        
+    </Grid>
+</Window>
+

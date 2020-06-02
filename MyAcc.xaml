@@ -1,0 +1,55 @@
+﻿<Window x:Class="WpfApp1.MyAcc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MyAcc" Height="800" Width="800">
+    <StackPanel Background="DimGray">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Залы" FontSize="15"   Margin="5" />
+            <Button Grid.Column="1" Content="Фильмы" FontSize="15" Margin="5" Click="FilmView_OnClick"/>
+            <Button Grid.Column="2" Content="Сеансы" FontSize="15" Margin="5" Click="SessionView_OnClick" />
+            <Button  Content="Пользователи"  FontSize="15" Margin="0.4,5,9.6,5.2"  Grid.Column="3" Grid.ColumnSpan="2" Click="User_OnClick" />
+            <Button Grid.Column="7" Content="Выйти" Click="Exit_OnClick" FontSize="15" Margin="5"/>
+            <Button Grid.Column="5" Content="Отчеты" FontSize="15" Margin="5" Click="Report_OnClick" />
+            <Button Grid.Column="6" Content="Мой аккаунт" FontSize="15" Margin="5" IsEnabled="False"  />
+        </Grid>
+        <Grid Background="DimGray" Height="700">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Content="Мои данные" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="Имя" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBox Grid.Row="1" IsReadOnly="True" Grid.Column="1" Background="WhiteSmoke" Name="nameTextBox" FontSize="17" Margin="25" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="0"  Margin="5" Content="Фамилия" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="2" IsReadOnly="True" Grid.Column="1" Background="WhiteSmoke" Name="surnameTextBox" FontSize="17" Margin="25" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Отчество" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="3" IsReadOnly="True" Grid.Column="1" Name="otcTextBox" Background="WhiteSmoke" FontSize="17" Margin="25" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="0" Margin="5" Content="Возраст" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="4" Grid.Column="1" IsReadOnly="True" Name="ageBox" Background="WhiteSmoke" FontSize="17" Margin="25" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            
+            <Button Grid.Row="5" Grid.Column="1" FontSize="17" Margin="25.2,23.4,24.6,25" Content="Изменить данные" Click="Edit_OnClick"/>
+        </Grid>
+    </StackPanel>
+</Window>

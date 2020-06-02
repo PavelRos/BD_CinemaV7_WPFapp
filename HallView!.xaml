@@ -1,0 +1,63 @@
+﻿<Window x:Class="WpfApp1.HallView_"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:custom="clr-namespace:BD_CinemaV7.Models;assembly=BD_CinemaV7"
+        mc:Ignorable="d"
+        Title="HallView" Height="600" Width="1080">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Залы" FontSize="15"   Margin="5" IsEnabled="False"/>
+            <Button Grid.Column="1" Content="Фильмы" FontSize="15" Margin="5" Click="FilmView_OnClick"/>
+            <Button Grid.Column="2" Content="Сеансы" FontSize="15" Margin="5" Click="SessionView_OnClick" />
+            <Button  Content="Пользователи"  FontSize="15" Margin="0.4,5,9.6,5.2"  Grid.Column="3" Grid.ColumnSpan="2" Click="User_OnClick" />
+            <Button Grid.Column="7" Content="Выйти" Click="Exit_OnClick" FontSize="15" Margin="5"/>
+            <Button Grid.Column="5" Content="Отчеты" FontSize="15" Margin="5" Click="Report_OnClick" />
+            <Button Grid.Column="6" Content="Мой аккаунт" FontSize="15" Margin="5" Click="MyAcc_OnClick" />
+        </Grid>
+        <Grid Height="720">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="1" Name="dataGrid" Margin="5" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Halls}" SelectedItem="{Binding SelectedHall}" CanUserAddRows="False">
+                <DataGrid.ContextMenu>
+                    <ContextMenu StaysOpen="True" Background="WhiteSmoke">
+                        <MenuItem Header="Удалить" Click="Delete_OnClick"/>
+                        <MenuItem Header="Редактировать" Click="Edit_OnClick"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название зала" Width="*" Binding="{Binding hall_name}"/>
+                    <DataGridTextColumn Header="Тип зала" Width="*" Binding="{Binding type}"/>
+                    <DataGridTextColumn Header="Количество рядов" Width="*" Binding="{Binding number_of_rows}"/>
+                    <DataGridTextColumn Header="Количество мест в ряду" Width="*" Binding="{Binding number_of_seats_in_a_row}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Column="0">
+                <Label Content="Название зала" Margin="5" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox Name="nameTextBox" Height="30" Margin="0,5,0,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                <Label Content="Тип зала" Margin="5" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ComboBox Name="TypeComboBox" ItemsSource="{Binding Types_of_the_hall}" SelectedValuePath="Hall_Type" DisplayMemberPath="Hall_Type" Height="30" Margin="0,5,0,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
+                <Label Content="Количество рядов" Margin="5" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox Name="RowsTextBox" Height="30" Margin="0,5,0,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
+                <Label Content="Количество мест в ряду" Margin="5" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox Name="PlaceTextBox" Height="30" Margin="0,5,0,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
+                <Button FontSize="14" Content="Добавить зал" Margin="5" Click="Add_OnClick"/>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>
+
